@@ -1,5 +1,6 @@
 export default {
   name: "Raspberry Pi 40-Pin GPIO",
+  variant: "a",
   description: "Standard 40-pin GPIO header found on Raspberry Pi 2, 3, 4, and Zero",
   pins: [
     { number: 1, name: "3.3V Power", type: "Power", color: "#f59e0b", voltage: "3.3V", description: "3.3V power output" },

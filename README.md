@@ -15,6 +15,7 @@ A comprehensive GPIO pinout visualization tool for various single-board computer
 ## Supported Boards
 
 ### Radxa Boards
+
 - ROCK 2F (Variant F)
 - ROCK 5A (Variant B)
 - ROCK 5B (Variant B)
@@ -22,10 +23,12 @@ A comprehensive GPIO pinout visualization tool for various single-board computer
 - ROCK 2A (Variant A)
 
 ### Orion Boards
+
 - Orion O6 (Variant O6)
 - Orion O6N (Variant O6N)
 
 ### Arduino
+
 - Arduino Uno (Variant A)
 
 ## Installation
@@ -59,7 +62,7 @@ npm run build
 
 ## Project Structure
 
-```
+```text
 pin-out/
 ├── src/
 │   ├── assets/          # SVG files for different board variants

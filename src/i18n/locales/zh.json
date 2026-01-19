@@ -4,7 +4,7 @@
     "subtitle": "交互式引脚配置查看器"
   },
   "boards": {
-    "raspberryPi": "树莓派 40针",
+    "raspberryPi": "树莓派 40-pin",
     "arduino": "Arduino Uno",
     "rock5a": "Radxa ROCK 5A",
     "rock5b": "Radxa ROCK 5B",

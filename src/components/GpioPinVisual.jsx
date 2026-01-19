@@ -4,6 +4,7 @@ import variantBSvg from '../assets/gpio-40pin-variant-b.svg'
 import variantFSvg from '../assets/gpio-40pin-variant-f.svg'
 import variantO6nSvg from '../assets/gpio-40pin-variant-o6n.svg'
 import variantO6Svg from '../assets/gpio-40pin-variant-o6.svg'
+import variantZSvg from '../assets/gpio-40pin-variant-z.svg'
 
 const GpioPinVisual = ({ selectedPin, hoveredPin, pins, variant = 'b' }) => {
   const containerRef = useRef(null)
@@ -11,7 +12,7 @@ const GpioPinVisual = ({ selectedPin, hoveredPin, pins, variant = 'b' }) => {
   if (pins) {
     pins.forEach(pin => { pinColorMap[pin.number] = pin.color || '#94a3b8' })
   }
-  const svgSrc = variant === 'o6' ? variantO6Svg : (variant === 'o6n' ? variantO6nSvg : (variant === 'f' ? variantFSvg : (variant === 'a' ? variantASvg : variantBSvg)))
+  const svgSrc = variant === 'z' ? variantZSvg : (variant === 'o6' ? variantO6Svg : (variant === 'o6n' ? variantO6nSvg : (variant === 'f' ? variantFSvg : (variant === 'a' ? variantASvg : variantBSvg))))
   const variantAPositions = { 1: { cx: 26.5, cy: 14.13 }, 3: { cx: 34.66, cy: 14.13 }, 5: { cx: 42.82, cy: 14.13 }, 7: { cx: 50.98, cy: 14.13 }, 9: { cx: 59.14, cy: 14.13 }, 11: { cx: 67.30, cy: 14.13 }, 13: { cx: 75.46, cy: 14.13 }, 15: { cx: 83.62, cy: 14.13 }, 17: { cx: 91.82, cy: 14.13 }, 19: { cx: 99.98, cy: 14.13 }, 21: { cx: 108.14, cy: 14.13 }, 23: { cx: 116.30, cy: 14.13 }, 25: { cx: 124.46, cy: 14.13 }, 27: { cx: 132.62, cy: 14.13 }, 29: { cx: 140.78, cy: 14.13 }, 31: { cx: 148.94, cy: 14.13 }, 33: { cx: 157.10, cy: 14.13 }, 35: { cx: 165.26, cy: 14.13 }, 37: { cx: 173.43, cy: 14.13 }, 39: { cx: 181.62, cy: 14.13 }, 2: { cx: 26.5, cy: 5.97 }, 4: { cx: 34.66, cy: 5.97 }, 6: { cx: 42.82, cy: 5.97 }, 8: { cx: 50.98, cy: 5.97 }, 10: { cx: 59.14, cy: 5.97 }, 12: { cx: 67.30, cy: 5.97 }, 14: { cx: 75.46, cy: 5.97 }, 16: { cx: 83.62, cy: 5.97 }, 18: { cx: 91.82, cy: 5.97 }, 20: { cx: 99.98, cy: 5.97 }, 22: { cx: 108.14, cy: 5.97 }, 24: { cx: 116.30, cy: 5.97 }, 26: { cx: 124.46, cy: 5.97 }, 28: { cx: 132.62, cy: 5.97 }, 30: { cx: 140.78, cy: 5.97 }, 32: { cx: 148.94, cy: 5.97 }, 34: { cx: 157.10, cy: 5.97 }, 36: { cx: 165.26, cy: 5.97 }, 38: { cx: 173.43, cy: 5.97 }, 40: { cx: 181.62, cy: 5.97 } }
   const variantBPositions = { 1: { cx: 27.134, cy: 17.455 }, 3: { cx: 35.605, cy: 17.455 }, 5: { cx: 44.072, cy: 17.455 }, 7: { cx: 52.543, cy: 17.455 }, 9: { cx: 61.015, cy: 17.455 }, 11: { cx: 69.485, cy: 17.455 }, 13: { cx: 77.957, cy: 17.455 }, 15: { cx: 86.428, cy: 17.455 }, 17: { cx: 94.900, cy: 17.455 }, 19: { cx: 103.370, cy: 17.455 }, 21: { cx: 111.842, cy: 17.455 }, 23: { cx: 120.313, cy: 17.455 }, 25: { cx: 128.784, cy: 17.455 }, 27: { cx: 137.255, cy: 17.455 }, 29: { cx: 145.727, cy: 17.455 }, 31: { cx: 154.193, cy: 17.455 }, 33: { cx: 162.669, cy: 17.455 }, 35: { cx: 171.140, cy: 17.455 }, 37: { cx: 179.607, cy: 17.455 }, 39: { cx: 188.082, cy: 17.455 }, 2: { cx: 27.134, cy: 8.942 }, 4: { cx: 35.605, cy: 8.942 }, 6: { cx: 44.072, cy: 8.942 }, 8: { cx: 52.543, cy: 8.942 }, 10: { cx: 61.015, cy: 8.942 }, 12: { cx: 69.485, cy: 8.942 }, 14: { cx: 77.957, cy: 8.942 }, 16: { cx: 86.428, cy: 8.942 }, 18: { cx: 94.900, cy: 8.942 }, 20: { cx: 103.370, cy: 8.942 }, 22: { cx: 111.842, cy: 8.942 }, 24: { cx: 120.313, cy: 8.942 }, 26: { cx: 128.784, cy: 8.942 }, 28: { cx: 137.255, cy: 8.942 }, 30: { cx: 145.727, cy: 8.942 }, 32: { cx: 154.193, cy: 8.942 }, 34: { cx: 162.669, cy: 8.942 }, 36: { cx: 171.140, cy: 8.942 }, 38: { cx: 179.607, cy: 8.942 }, 40: { cx: 188.082, cy: 8.942 } }
   const variantFPositions = { 
@@ -62,8 +63,24 @@ const GpioPinVisual = ({ selectedPin, hoveredPin, pins, variant = 'b' }) => {
     32: { cx: 719.587, cy: 22.9577 }, 34: { cx: 739.2, cy: 22.9577 }, 36: { cx: 758.805, cy: 22.9577 },
     38: { cx: 778.395, cy: 22.9577 }, 40: { cx: 798.009, cy: 22.9577 }
   }
-  const pinPositions = variant === 'o6' ? variantO6Positions : (variant === 'o6n' ? variantO6nPositions : (variant === 'f' ? variantFPositions : (variant === 'a' ? variantAPositions : variantBPositions)))
-  const viewBox = variant === 'o6' ? '0 0 1312 1327' : (variant === 'o6n' ? '0 0 1146 1139' : (variant === 'f' ? '0 0 995 853' : (variant === 'a' ? '0 0 274 180' : '0 0 335 250')))
+  const variantZPositions = {
+    1: { cx: 83.4701, cy: 46.8482 }, 3: { cx: 109.024, cy: 46.8482 }, 5: { cx: 134.566, cy: 46.8482 },
+    7: { cx: 160.12, cy: 46.8482 }, 9: { cx: 185.673, cy: 46.8482 }, 11: { cx: 211.227, cy: 46.8482 },
+    13: { cx: 236.781, cy: 46.8482 }, 15: { cx: 262.335, cy: 46.8482 }, 17: { cx: 287.889, cy: 46.8482 },
+    19: { cx: 313.443, cy: 46.8482 }, 21: { cx: 338.997, cy: 46.8482 }, 23: { cx: 364.551, cy: 46.8482 },
+    25: { cx: 390.105, cy: 46.8482 }, 27: { cx: 415.659, cy: 46.8482 }, 29: { cx: 441.213, cy: 46.8482 },
+    31: { cx: 466.767, cy: 46.8482 }, 33: { cx: 492.321, cy: 46.8482 }, 35: { cx: 517.875, cy: 46.8482 },
+    37: { cx: 543.429, cy: 46.8482 }, 39: { cx: 568.983, cy: 46.8482 },
+    2: { cx: 83.4701, cy: 27.577 }, 4: { cx: 109.024, cy: 27.577 }, 6: { cx: 134.566, cy: 27.577 },
+    8: { cx: 160.12, cy: 27.577 }, 10: { cx: 185.673, cy: 27.577 }, 12: { cx: 211.227, cy: 27.577 },
+    14: { cx: 236.781, cy: 27.577 }, 16: { cx: 262.335, cy: 27.577 }, 18: { cx: 287.889, cy: 27.577 },
+    20: { cx: 313.443, cy: 27.577 }, 22: { cx: 338.997, cy: 27.577 }, 24: { cx: 364.551, cy: 27.577 },
+    26: { cx: 390.105, cy: 27.577 }, 28: { cx: 415.659, cy: 27.577 }, 30: { cx: 441.213, cy: 27.577 },
+    32: { cx: 466.767, cy: 27.577 }, 34: { cx: 492.321, cy: 27.577 }, 36: { cx: 517.875, cy: 27.577 },
+    38: { cx: 543.429, cy: 27.577 }, 40: { cx: 568.983, cy: 27.577 }
+  }
+  const pinPositions = variant === 'z' ? variantZPositions : (variant === 'o6' ? variantO6Positions : (variant === 'o6n' ? variantO6nPositions : (variant === 'f' ? variantFPositions : (variant === 'a' ? variantAPositions : variantBPositions))))
+  const viewBox = variant === 'z' ? '0 0 650 300' : (variant === 'o6' ? '0 0 1312 1327' : (variant === 'o6n' ? '0 0 1146 1139' : (variant === 'f' ? '0 0 995 853' : (variant === 'a' ? '0 0 274 180' : '0 0 335 250'))))
   useEffect(() => {
     if (!containerRef.current) return
     const activePin = selectedPin || hoveredPin
@@ -86,7 +103,7 @@ const GpioPinVisual = ({ selectedPin, hoveredPin, pins, variant = 'b' }) => {
         circle.setAttribute('fill', pinColor)
         circle.setAttribute('fill-opacity', '1')
         circle.setAttribute('stroke', '#ff0000')
-        circle.setAttribute('stroke-width', (variant === 'f' || variant === 'o6n') ? '4' : '2.5')
+        circle.setAttribute('stroke-width', (variant === 'f' || variant === 'o6n' || variant === 'o6' || variant === 'z') ? '4' : '2.5')
         circle.style.filter = 'drop-shadow(0 0 8px rgba(255, 0, 0, 0.8))'
       }
     }
@@ -97,8 +114,8 @@ const GpioPinVisual = ({ selectedPin, hoveredPin, pins, variant = 'b' }) => {
       <svg className="absolute top-0 left-0 w-full h-full pointer-events-none" viewBox={viewBox} xmlns="http://www.w3.org/2000/svg">
         {Object.entries(pinPositions).map(([pinNum, pos]) => {
           const pinColor = pinColorMap[parseInt(pinNum)] || '#94a3b8'
-          const radius = variant === 'f' || variant === 'o6n' || variant === 'o6' ? 8 : 2.5
-          const strokeWidth = variant === 'f' || variant === 'o6n' || variant === 'o6' ? 1.5 : 0.5
+          const radius = variant === 'f' || variant === 'o6n' || variant === 'o6' || variant === 'z' ? 8 : 2.5
+          const strokeWidth = variant === 'f' || variant === 'o6n' || variant === 'o6' || variant === 'z' ? 1.5 : 0.5
           return <circle key={pinNum} cx={pos.cx} cy={pos.cy} r={radius} fill={pinColor} fillOpacity="0.8" stroke={pinColor} strokeWidth={strokeWidth} data-pin={pinNum} className="transition-all duration-200" />
         })}
       </svg>

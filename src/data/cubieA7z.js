@@ -1,5 +1,6 @@
 export default {
   name: "Cubie A7Z",
+  variant: "z",
   description: "Cubie A7Z 40-pin GPIO header with Allwinner A733 SoC",
   pins: [
     { number: 1, name: "3.3V", type: "Power", color: "#f59e0b", voltage: "3.3V", description: "3.3V power output" },

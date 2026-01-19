@@ -1,10 +1,12 @@
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import PinDiagram from './components/PinDiagram'
 import JsonEditor from './components/JsonEditor'
-import { Upload, Github } from 'lucide-react'
+import { Upload, Github, Languages } from 'lucide-react'
 import { examplePinouts } from './data'
 
 function App() {
+  const { t, i18n } = useTranslation()
   const [pinConfig, setPinConfig] = useState(examplePinouts.rock5b)
   const [selectedExample, setSelectedExample] = useState('rock5b')
 
@@ -33,11 +35,15 @@ function App() {
           setPinConfig(json)
           setSelectedExample('custom')
         } catch (error) {
-          alert('Invalid JSON file')
+          alert(t('ui.uploadJson'))
         }
       }
       reader.readAsText(file)
     }
+  }
+
+  const changeLanguage = (lng) => {
+    i18n.changeLanguage(lng)
   }
 
   return (
@@ -47,21 +53,33 @@ function App() {
           <div className="flex items-center justify-between">
             <div>
               <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold text-slate-900 dark:text-white">
-                Pin Diagram Visualizer
+                {t('app.title')}
               </h1>
               <p className="mt-1 text-xs sm:text-sm text-slate-600 dark:text-slate-400">
-                Interactive pin configuration viewer
+                {t('app.subtitle')}
               </p>
             </div>
-            <a
-              href="https://github.com/xzl01/pin-out"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition-colors"
-              title="View on GitHub"
-            >
-              <Github className="w-5 h-5 sm:w-6 sm:h-6" />
-            </a>
+            <div className="flex items-center gap-3">
+              <button
+                onClick={() => changeLanguage(i18n.language === 'en' ? 'zh' : 'en')}
+                className="text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition-colors"
+                title={t('ui.language')}
+              >
+                <Languages className="w-5 h-5 sm:w-6 sm:h-6" />
+                <span className="ml-1 text-xs sm:text-sm font-medium">
+                  {i18n.language === 'en' ? '中文' : 'EN'}
+                </span>
+              </button>
+              <a
+                href="https://github.com/xzl01/pin-out"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition-colors"
+                title="View on GitHub"
+              >
+                <Github className="w-5 h-5 sm:w-6 sm:h-6" />
+              </a>
+            </div>
           </div>
         </div>
       </header>
@@ -71,7 +89,7 @@ function App() {
           <div className="bg-white dark:bg-slate-800 rounded-lg shadow-lg p-4 sm:p-6">
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-0 mb-4 sm:mb-6">
               <h2 className="text-lg sm:text-xl font-semibold text-slate-900 dark:text-white">
-                Pin Diagram
+                {t('ui.pinDiagram')}
               </h2>
               <div className="flex flex-col sm:flex-row gap-2">
                 <select
@@ -79,33 +97,33 @@ function App() {
                   onChange={(e) => handleExampleChange(e.target.value)}
                   className="w-full sm:w-auto px-3 py-2 text-sm border border-slate-300 dark:border-slate-600 rounded-md bg-white dark:bg-slate-700 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary"
                 >
-                  <option value="raspberryPi">Raspberry Pi 40-pin</option>
-                  <option value="arduino">Arduino Uno</option>
-                  <option value="rock5a">Radxa ROCK 5A</option>
-                  <option value="rock5b">Radxa ROCK 5B</option>
-                  <option value="rock4d">Radxa ROCK 4D</option>
-                  <option value="rock3a">Radxa ROCK 3A</option>
-                  <option value="rock3b">Radxa ROCK 3B</option>
-                  <option value="rock3c">Radxa ROCK 3C</option>
-                  <option value="rock2a">Radxa ROCK 2A</option>
-                  <option value="rock2f">Radxa ROCK 2F</option>
-                  <option value="rockPiE">ROCK Pi E</option>
-                  <option value="rockPiS">ROCK Pi S</option>
-                  <option value="radxaZero">Radxa ZERO</option>
-                  <option value="radxaZero2Pro">Radxa ZERO 2 Pro</option>
-                  <option value="radxaZero3">Radxa ZERO 3</option>
-                  <option value="cubieA5e">Cubie A5E</option>
-                  <option value="cubieA7a">Cubie A7A</option>
-                  <option value="cubieA7z">Cubie A7Z</option>
-                  <option value="dragonQ6a">Dragon Q6A</option>
-                  <option value="orionO6">Orion O6</option>
-                  <option value="orionO6n">Orion O6N</option>
-                  <option value="custom">Custom</option>
+                  <option value="raspberryPi">{t('boards.raspberryPi')}</option>
+                  <option value="arduino">{t('boards.arduino')}</option>
+                  <option value="rock5a">{t('boards.rock5a')}</option>
+                  <option value="rock5b">{t('boards.rock5b')}</option>
+                  <option value="rock4d">{t('boards.rock4d')}</option>
+                  <option value="rock3a">{t('boards.rock3a')}</option>
+                  <option value="rock3b">{t('boards.rock3b')}</option>
+                  <option value="rock3c">{t('boards.rock3c')}</option>
+                  <option value="rock2a">{t('boards.rock2a')}</option>
+                  <option value="rock2f">{t('boards.rock2f')}</option>
+                  <option value="rockPiE">{t('boards.rockPiE')}</option>
+                  <option value="rockPiS">{t('boards.rockPiS')}</option>
+                  <option value="radxaZero">{t('boards.radxaZero')}</option>
+                  <option value="radxaZero2Pro">{t('boards.radxaZero2Pro')}</option>
+                  <option value="radxaZero3">{t('boards.radxaZero3')}</option>
+                  <option value="cubieA5e">{t('boards.cubieA5e')}</option>
+                  <option value="cubieA7a">{t('boards.cubieA7a')}</option>
+                  <option value="cubieA7z">{t('boards.cubieA7z')}</option>
+                  <option value="dragonQ6a">{t('boards.dragonQ6a')}</option>
+                  <option value="orionO6">{t('boards.orionO6')}</option>
+                  <option value="orionO6n">{t('boards.orionO6n')}</option>
+                  <option value="custom">{t('boards.custom')}</option>
                 </select>
                 <label className="cursor-pointer inline-flex items-center justify-center gap-2 px-4 py-2 text-sm font-medium text-white bg-primary hover:bg-primary/90 rounded-md transition-colors">
                   <Upload className="w-4 h-4" />
-                  <span className="hidden sm:inline">Upload JSON</span>
-                  <span className="sm:hidden">Upload</span>
+                  <span className="hidden sm:inline">{t('ui.uploadJson')}</span>
+                  <span className="sm:hidden">{t('ui.upload')}</span>
                   <input
                     type="file"
                     accept=".json"
@@ -128,14 +146,14 @@ function App() {
 
         <div className="mt-4 sm:mt-8 bg-white dark:bg-slate-800 rounded-lg shadow-lg p-4 sm:p-6">
           <h2 className="text-xl font-semibold text-slate-900 dark:text-white mb-4">
-            How to Use
+            {t('ui.howToUse')}
           </h2>
           <div className="prose dark:prose-invert max-w-none">
             <ul className="text-slate-600 dark:text-slate-400 space-y-2">
-              <li>Select a pre-defined example from the dropdown or upload your own JSON file</li>
-              <li>Edit the JSON configuration in the editor on the right</li>
-              <li>Hover over pins to see detailed information</li>
-              <li>Click on pins to highlight them</li>
+              <li>{t('ui.instructions.selectExample')}</li>
+              <li>{t('ui.instructions.editConfig')}</li>
+              <li>{t('ui.instructions.hoverPins')}</li>
+              <li>{t('ui.instructions.clickPins')}</li>
             </ul>
           </div>
         </div>

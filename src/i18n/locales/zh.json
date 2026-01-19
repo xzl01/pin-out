@@ -1,0 +1,63 @@
+{
+  "app": {
+    "title": "引脚图可视化工具",
+    "subtitle": "交互式引脚配置查看器"
+  },
+  "boards": {
+    "raspberryPi": "树莓派 40针",
+    "arduino": "Arduino Uno",
+    "rock5a": "Radxa ROCK 5A",
+    "rock5b": "Radxa ROCK 5B",
+    "rock4d": "Radxa ROCK 4D",
+    "rock3a": "Radxa ROCK 3A",
+    "rock3b": "Radxa ROCK 3B",
+    "rock3c": "Radxa ROCK 3C",
+    "rock2a": "Radxa ROCK 2A",
+    "rock2f": "Radxa ROCK 2F",
+    "rockPiE": "ROCK Pi E",
+    "rockPiS": "ROCK Pi S",
+    "radxaZero": "Radxa ZERO",
+    "radxaZero2Pro": "Radxa ZERO 2 Pro",
+    "radxaZero3": "Radxa ZERO 3",
+    "cubieA5e": "Cubie A5E",
+    "cubieA7a": "Cubie A7A",
+    "cubieA7z": "Cubie A7Z",
+    "dragonQ6a": "Dragon Q6A",
+    "orionO6": "Orion O6",
+    "orionO6n": "Orion O6N",
+    "custom": "自定义"
+  },
+  "pinTypes": {
+    "Power": "电源",
+    "GPIO": "GPIO",
+    "Ground": "地线",
+    "Digital": "数字",
+    "Analog": "模拟",
+    "Special": "特殊",
+    "Input": "输入"
+  },
+  "ui": {
+    "pinDiagram": "引脚图",
+    "uploadJson": "上传 JSON",
+    "upload": "上传",
+    "jsonEditor": "JSON 编辑器",
+    "howToUse": "使用说明",
+    "instructions": {
+      "selectExample": "从下拉菜单选择预定义示例或上传您自己的 JSON 文件",
+      "editConfig": "在右侧编辑器中编辑 JSON 配置",
+      "hoverPins": "将鼠标悬停在引脚上查看详细信息",
+      "clickPins": "点击引脚以高亮显示"
+    },
+    "pinDetails": {
+      "pin": "引脚",
+      "name": "名称",
+      "type": "类型",
+      "gpio": "GPIO",
+      "voltage": "电压",
+      "functions": "功能",
+      "description": "描述"
+    },
+    "language": "语言",
+    "noConfigLoaded": "未加载引脚配置"
+  }
+}

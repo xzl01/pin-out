@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
 import Pin from './Pin'
 import GpioPinVisual from './GpioPinVisual'
 import { examplePinouts } from '../data/index'
 
 const PinDiagram = ({ config }) => {
+  const { t } = useTranslation()
   const [selectedPin, setSelectedPin] = useState(null)
   const [hoveredPin, setHoveredPin] = useState(null)
   const [selectedFunction, setSelectedFunction] = useState(null)
@@ -11,7 +13,7 @@ const PinDiagram = ({ config }) => {
   if (!config || (!config.pins && !config.connectors)) {
     return (
       <div className="text-center py-12 text-slate-500">
-        No pin configuration loaded
+        {t('ui.noConfigLoaded') || 'No pin configuration loaded'}
       </div>
     )
   }
@@ -181,7 +183,7 @@ const PinDiagram = ({ config }) => {
                 />
                 <div className="flex-1 min-w-0">
                   <h4 className="text-base sm:text-lg font-semibold text-slate-900 dark:text-white mb-1">
-                    Pin {activePin.number}
+                    {t('ui.pinDetails.pin')} {activePin.number}
                   </h4>
                   <p className="text-sm sm:text-base font-medium text-slate-700 dark:text-slate-300">
                     {activePin.name}
@@ -191,27 +193,27 @@ const PinDiagram = ({ config }) => {
 
               <div className="space-y-2 sm:space-y-3 text-xs sm:text-sm">
                 <div className="flex items-center gap-2">
-                  <span className="font-medium text-slate-700 dark:text-slate-300 w-16">类型:</span>
-                  <span className="text-slate-600 dark:text-slate-400">{activePin.type}</span>
+                  <span className="font-medium text-slate-700 dark:text-slate-300 w-16">{t('ui.pinDetails.type')}:</span>
+                  <span className="text-slate-600 dark:text-slate-400">{t(`pinTypes.${activePin.type}`) || activePin.type}</span>
                 </div>
                 
                 {activePin.gpio && (
                   <div className="flex items-center gap-2">
-                    <span className="font-medium text-slate-700 dark:text-slate-300 w-16">GPIO:</span>
+                    <span className="font-medium text-slate-700 dark:text-slate-300 w-16">{t('ui.pinDetails.gpio')}:</span>
                     <span className="font-mono text-slate-600 dark:text-slate-400">{activePin.gpio}</span>
                   </div>
                 )}
                 
                 {activePin.voltage && (
                   <div className="flex items-center gap-2">
-                    <span className="font-medium text-slate-700 dark:text-slate-300 w-16">电压:</span>
+                    <span className="font-medium text-slate-700 dark:text-slate-300 w-16">{t('ui.pinDetails.voltage')}:</span>
                     <span className="text-slate-600 dark:text-slate-400">{activePin.voltage}</span>
                   </div>
                 )}
 
                 {activePin.functions && activePin.functions.length > 0 && (
                   <div>
-                    <div className="font-medium text-slate-700 dark:text-slate-300 mb-2">可用功能：</div>
+                    <div className="font-medium text-slate-700 dark:text-slate-300 mb-2">{t('ui.pinDetails.functions')}:</div>
                     <div className="flex flex-wrap gap-2">
                       {activePin.functions.map((func, idx) => {
                         const funcUpper = func.toUpperCase()

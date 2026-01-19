@@ -251,7 +251,7 @@ const PinDiagram = ({ config }) => {
 
                 {activePin.description && (
                   <div className="pt-3 border-t border-slate-200 dark:border-slate-700">
-                    <div className="font-medium text-slate-700 dark:text-slate-300 mb-2">说明:</div>
+                    <div className="font-medium text-slate-700 dark:text-slate-300 mb-2">{t('ui.pinDetails.description')}:</div>
                     <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
                       {activePin.description}
                     </p>
@@ -261,7 +261,7 @@ const PinDiagram = ({ config }) => {
                 {selectedFunction && matchingPins.length > 0 && (
                   <div className="pt-3 border-t border-slate-200 dark:border-slate-700">
                     <div className="font-medium text-slate-700 dark:text-slate-300 mb-2">
-                      具有 "{selectedFunction}" 功能的其他 SBC:
+                      Other SBCs with "{selectedFunction}" function:
                     </div>
                     <div className="max-h-60 overflow-y-auto space-y-2">
                       {matchingPins.map((match, idx) => (
@@ -283,7 +283,7 @@ const PinDiagram = ({ config }) => {
                             </div>
                             {match.isSamePinNumber && (
                               <span className="px-1.5 py-0.5 text-[9px] font-semibold rounded bg-amber-500 text-white">
-                                相同位置
+                                Same Position
                               </span>
                             )}
                           </div>

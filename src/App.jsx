@@ -54,10 +54,11 @@ function App() {
               </p>
             </div>
             <a
-              href="https://github.com"
+              href="https://github.com/xzl01/pin-out"
               target="_blank"
               rel="noopener noreferrer"
               className="text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition-colors"
+              title="View on GitHub"
             >
               <Github className="w-5 h-5 sm:w-6 sm:h-6" />
             </a>

@@ -1,93 +1,114 @@
-# Pin Diagram Visualizer
+# Pin-out Visualizer
 
-A modern web application for visualizing pin configurations of development boards, inspired by [Pinout.xyz](https://pinout.xyz).
+A comprehensive GPIO pinout visualization tool for various single-board computers and development boards.
 
 ## Features
 
-- 📌 Interactive pin diagram visualization
-- 🎨 Color-coded pins by type (Power, GPIO, Ground, etc.)
-- 📝 JSON-based pin configuration
-- 🔄 Live JSON editor with validation
-- 📤 Upload custom JSON configurations
-- 💡 Hover and click interactions for detailed pin information
-- 🎯 Pre-loaded examples (Raspberry Pi, Arduino, ESP32)
+- Interactive pinout diagrams for multiple boards
+- Visual pin highlighting with color coding
+- Support for different board variants
+- Hover and click interactions for pin details
+- Clean and responsive UI
 - 🌓 Dark mode support
 - 📱 Responsive design
 
-## Getting Started
+## Supported Boards
 
-### Installation
+### Radxa Boards
+- ROCK 2F (Variant F)
+- ROCK 5A (Variant B)
+- ROCK 5B (Variant B)
+- ROCK 3B (Variant B)
+- ROCK 2A (Variant A)
+
+### Orion Boards
+- Orion O6 (Variant O6)
+- Orion O6N (Variant O6N)
+
+### Arduino
+- Arduino Uno (Variant A)
+
+## Installation
 
 ```bash
+# Clone the repository
+git clone git@github.com:xzl01/pin-out.git
+cd pin-out
+
+# Install dependencies
 npm install
-```
 
-### Development
-
-```bash
+# Start development server
 npm run dev
-```
 
-Open [http://localhost:5173](http://localhost:5173) in your browser.
-
-### Build
-
-```bash
+# Build for production
 npm run build
 ```
 
-### Preview Production Build
+## Usage
 
-```bash
-npm run preview
+1. Select a board from the dropdown menu
+2. Hover over pins to see their details
+3. Click on pins to highlight them
+4. View pin information including:
+   - Pin number
+   - Pin name
+   - GPIO number (if applicable)
+   - Pin type (Power, Ground, GPIO, etc.)
+   - Available functions
+
+## Project Structure
+
+```
+pin-out/
+├── src/
+│   ├── assets/          # SVG files for different board variants
+│   ├── components/      # React components
+│   │   ├── GpioPinVisual.jsx    # Main pin visualization component
+│   │   └── PinDiagram.jsx       # Pin diagram component
+│   ├── data/           # Board configuration files
+│   └── App.jsx         # Main application component
+├── public/
+└── dist/              # Build output
 ```
 
-## JSON Configuration Format
+## Adding New Boards
 
-The application accepts JSON files with the following structure:
+To add a new board:
 
-```json
-{
-  "name": "Board Name",
-  "description": "Board description",
-  "pins": [
+1. Add the board configuration in `src/data/[boardName].js`
+2. Add the SVG file in `src/assets/gpio-40pin-variant-[variant].svg`
+3. Update `GpioPinVisual.jsx` to support the new variant if needed
+
+### Board Configuration Format
+
+```javascript
+export default {
+  name: "Board Name",
+  variant: "variant-id",  // Optional: specifies which SVG variant to use
+  description: "Board description",
+  pins: [
     {
-      "number": 1,
-      "name": "Pin Name",
-      "type": "Power|GPIO|Ground|Digital|Analog|Special|Input",
-      "color": "#hex-color",
-      "gpio": "GPIO number (optional)",
-      "voltage": "3.3V|5V (optional)",
-      "description": "Pin description",
-      "functions": ["Function1", "Function2"]
-    }
+      number: 1,
+      name: "3.3V",
+      type: "Power",
+      color: "#f59e0b",
+      voltage: "3.3V",
+      description: "3.3V power output"
+    },
+    // ... more pins
   ]
 }
 ```
 
-### Pin Types
+## Pin Color Coding
 
-- **Power**: Power supply pins (3.3V, 5V, etc.)
-- **GPIO**: General Purpose Input/Output
-- **Ground**: Ground pins
-- **Digital**: Digital I/O pins
-- **Analog**: Analog input pins
-- **Special**: Special function pins (Reset, Enable, etc.)
-- **Input**: Input-only pins
-
-### Example
-
-See `src/data/examples.js` for complete examples of Raspberry Pi, Arduino Uno, and ESP32 configurations.
-
-## Usage
-
-1. **Select a Pre-defined Example**: Choose from Raspberry Pi, Arduino Uno, or ESP32 from the dropdown
-2. **Upload Custom JSON**: Click "Upload JSON" to load your own pin configuration
-3. **Edit Configuration**: Modify the JSON in the editor panel (changes apply in real-time)
-4. **Interact with Pins**: 
-   - Hover over pins to see quick information
-   - Click pins to select and view detailed information
-   - View pin functions, GPIO numbers, and descriptions
+- **Orange** (`#f59e0b`): 3.3V Power
+- **Red** (`#dc2626`): 5V Power
+- **Green** (`#10b981`): GPIO pins
+- **Gray** (`#1f2937`): Ground
+- **Blue** (`#3b82f6`): Analog pins
+- **Purple** (`#8b5cf6`): Special function pins
 
 ## Technology Stack
 
@@ -97,37 +118,24 @@ See `src/data/examples.js` for complete examples of Raspberry Pi, Arduino Uno, a
 - **Lucide React** - Icons
 - **Modern JavaScript (ES6+)**
 
-## Project Structure
-
-```
-pin-out/
-├── src/
-│   ├── components/
-│   │   ├── PinDiagram.jsx    # Main pin visualization component
-│   │   ├── Pin.jsx            # Individual pin component
-│   │   └── JsonEditor.jsx     # JSON configuration editor
-│   ├── data/
-│   │   └── examples.js        # Pre-defined board configurations
-│   ├── lib/
-│   │   └── utils.js           # Utility functions
-│   ├── App.jsx                # Main application component
-│   ├── main.jsx               # Application entry point
-│   └── index.css              # Global styles
-├── index.html
-├── package.json
-├── vite.config.js
-├── tailwind.config.js
-└── README.md
-```
-
 ## Contributing
 
-Feel free to submit issues and enhancement requests!
+Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## License
 
-MIT License
+This project is licensed under the LGPL 3.0 or later license. See the [LICENSE](LICENSE) file for details.
 
-## Acknowledgments
+## Attribution
 
-Inspired by [Pinout.xyz](https://pinout.xyz) - an excellent resource for Raspberry Pi GPIO pinouts.
+The documentation and other non-code content in this repository is licensed under CC BY 4.0.
+
+### Third-party Assets
+
+- Pinout SVG files are custom-designed for this project
+- Icons are from [Lucide React](https://lucide.dev/)
+- Built with [Vite](https://vitejs.dev/) and [React](https://reactjs.org/)
+
+## Contact
+
+For questions or suggestions, please open an issue on GitHub.

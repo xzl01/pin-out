@@ -1,6 +1,7 @@
 export default {
-  name: "ROCK 2A",
-  description: "ROCK 2A 40-pin GPIO header",
+  name: "Radxa ROCK 2A",
+  description: "ROCK 2A 40-pin GPIO header with RK3528A SoC",
+  variant: "a",
   pins: [
     { number: 1, name: "3.3V", type: "Power", color: "#f59e0b", voltage: "3.3V", description: "3.3V power output" },
     { number: 2, name: "5V", type: "Power", color: "#dc2626", voltage: "5V", description: "5V power output" },

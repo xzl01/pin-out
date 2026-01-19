@@ -1,5 +1,6 @@
 export default {
   name: "Orion O6",
+  variant: "o6",
   description: "Orion O6 40-pin GPIO header",
   pins: [
     { number: 1, name: "3.3V", type: "Power", color: "#f59e0b", voltage: "3.3V", description: "3.3V power output" },

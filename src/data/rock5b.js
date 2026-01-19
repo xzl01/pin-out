@@ -1,6 +1,7 @@
 export default {
   name: "Radxa ROCK 5B",
   description: "ROCK 5B 40-pin GPIO header with RK3588 SoC",
+  variant: "b",
   pins: [
     { number: 1, name: "3.3V", type: "Power", color: "#f59e0b", voltage: "3.3V", description: "3.3V power output" },
     { number: 2, name: "5V", type: "Power", color: "#dc2626", voltage: "5V", description: "5V power output" },

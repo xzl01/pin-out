@@ -1,5 +1,6 @@
 export default {
   name: "Radxa ZERO 2 Pro",
+  variant: "z",
   description: "Radxa ZERO 2 Pro 40-pin GPIO header",
   pins: [
     { number: 1, name: "3.3V", type: "Power", color: "#f59e0b", voltage: "3.3V", description: "3.3V power output" },

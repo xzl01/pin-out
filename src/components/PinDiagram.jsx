@@ -149,18 +149,18 @@ const PinDiagram = ({ config }) => {
         )}
       </div>
 
-      <div className="flex flex-col lg:flex-row gap-4 lg:gap-6">
+      <div className="flex flex-col xl:flex-row gap-4 xl:gap-6">
         {/* Left side - GPIO visualization (sticky) for single 40-pin layout */}
         {!isDualLayout && (
-          <div className="w-full lg:w-80 flex-shrink-0 order-first">
-            <div className="lg:sticky lg:top-4">
+          <div className="w-full xl:w-80 flex-shrink-0 order-first">
+            <div className="xl:sticky xl:top-4">
               <GpioPinVisual selectedPin={selectedPin} hoveredPin={hoveredPin} pins={config.pins} variant={config.variant} />
             </div>
           </div>
         )}
 
         {/* Middle - Pin diagram */}
-        <div className="flex-1 space-y-4">
+        <div className="flex-1 min-w-0 space-y-4">
           {isDualLayout ? (
             // Dual connector layout (e.g., ROCK Pi S with 2x 26-pin)
             config.connectors.map(connector => 
@@ -173,9 +173,9 @@ const PinDiagram = ({ config }) => {
         </div>
 
         {/* Right side - Pin details */}
-        <div className="w-full lg:w-96 flex-shrink-0">
+        <div className="w-full xl:w-96 flex-shrink-0">
           {activePin ? (
-            <div className="bg-slate-50 dark:bg-slate-900 rounded-lg p-4 sm:p-5 border border-slate-200 dark:border-slate-700 lg:sticky lg:top-4">
+            <div className="bg-slate-50 dark:bg-slate-900 rounded-lg p-4 sm:p-5 border border-slate-200 dark:border-slate-700 xl:sticky xl:top-4">
               <div className="flex items-start gap-3 mb-4">
                 <div
                   className="w-5 h-5 rounded-full flex-shrink-0 mt-0.5"

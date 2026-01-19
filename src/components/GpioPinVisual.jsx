@@ -109,7 +109,7 @@ const GpioPinVisual = ({ selectedPin, hoveredPin, pins, variant = 'b' }) => {
     }
   }, [selectedPin, hoveredPin, pinColorMap, pinPositions])
   return (
-    <div ref={containerRef} className="w-full max-w-md mx-auto relative">
+    <div ref={containerRef} className="w-full relative">
       <img src={svgSrc} alt="GPIO Pin Layout" className="w-full h-auto" />
       <svg className="absolute top-0 left-0 w-full h-full pointer-events-none" viewBox={viewBox} xmlns="http://www.w3.org/2000/svg">
         {Object.entries(pinPositions).map(([pinNum, pos]) => {

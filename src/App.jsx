@@ -84,7 +84,7 @@ function App() {
         </div>
       </header>
 
-      <main className="max-w-[1800px] mx-auto px-3 sm:px-4 lg:px-8 py-4 sm:py-8">
+      <main className="w-full px-3 sm:px-4 lg:px-8 py-4 sm:py-8">
         <div className="space-y-4 sm:space-y-8">
           <div className="bg-white dark:bg-slate-800 rounded-lg shadow-lg p-4 sm:p-6">
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-0 mb-4 sm:mb-6">
